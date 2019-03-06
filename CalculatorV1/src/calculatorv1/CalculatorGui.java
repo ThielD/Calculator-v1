@@ -32,7 +32,6 @@ public class CalculatorGui {
         JButton equalsButton = new JButton("=");
         JButton clearButton = new JButton("ce");
         JButton periodButton = new JButton(".");
-        JButton backButton = new JButton("<-");
         
         mainFrame.setTitle("Calculator" + version);
         mainFrame.setSize(250, 400);
@@ -40,7 +39,7 @@ public class CalculatorGui {
         mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
         buttonField.add(clearButton);
-        buttonField.add(backButton);
+        buttonField.add(buttonZero);
         buttonField.add(periodButton);
         buttonField.add(divideButton);
         buttonField.add(buttonSeven);
