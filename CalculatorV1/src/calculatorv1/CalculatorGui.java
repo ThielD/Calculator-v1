@@ -13,9 +13,9 @@ public class CalculatorGui {
     
     JTextField textField = new JTextField();
     
-    double numberOne = 0;
-    double numberTwo = 0;
-    double answer = 0;
+    Double numberOne = 0.0;
+    Double numberTwo = 0.0;
+    Double answer = 0.0;
     
     enum Operator{
         add, subtract, multiply, divide
@@ -171,8 +171,8 @@ public class CalculatorGui {
 
         clearButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                numberOne = 0;
-                numberTwo = 0;
+                numberOne = 0.0;
+                numberTwo = 0.0;
                 textField.setText("");
             }
         });
@@ -196,7 +196,7 @@ public class CalculatorGui {
                     break;
                         
                     case divide:
-                        if (numberOne == 0.0 || numberTwo == 0.0){
+                        if (numberTwo.equals(0.0)){
                             textField.setText("Cant divide by 0");
                         } else {
                             answer = numberOne / numberTwo;
