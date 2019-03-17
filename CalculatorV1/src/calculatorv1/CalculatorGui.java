@@ -11,19 +11,16 @@ import java.awt.event.ActionListener;
 
 public class CalculatorGui {
     
-    private JButton[] buttons;
     private String[] numberText = {"7", "8", "9", "*", "4", "5", "6", "/", "1", "2", "3", "-", "ce", "0", ".", "+"};
-    JButton addButton;
-    JButton subtractButton;
-    JButton multiplyButton;
-    JButton divideButton;
-    JButton pointButton;
-    JButton clearButton;
+    JButton equalsButton;
     JButton numberButton;
+    JButton button;
     Double numberOne = 0.0;
     Double numberTwo = 0.0;
     Double answer = 0.0;
     Double version = 1.1;
+    JTextField textField = new JTextField();
+    
     enum Operator{
         add, subtract, multiply, divide
     }
@@ -33,7 +30,9 @@ public class CalculatorGui {
         
         JFrame mainFrame = new JFrame();
         JPanel numberPanel = new JPanel();
-        JTextField textField = new JTextField();
+        
+        JButton equalsButton = new JButton("=");
+        
         mainFrame.setTitle("Calculator" + version);
         mainFrame.setSize(300, 450);
         mainFrame.setLocationRelativeTo(null);
@@ -41,16 +40,19 @@ public class CalculatorGui {
         textField.setEditable(false);
         textField.setHorizontalAlignment(JTextField.RIGHT);
         numberPanel.setLayout(new GridLayout(4,4));
-        //buttons = new JButton[10];
+        
+        
         
         for (int i = 0; i < numberText.length; i++) {
-            //String text = String.valueOf(i);
             String text = numberText[i];
-            JButton button = new JButton(text);
-            //button.addActionListener((ActionListener) this);
+            button = new JButton(text);
+            button.addActionListener((ActionListener) this);
             numberPanel.add(button);
         }
         
+        
+        
+        mainFrame.add(BorderLayout.SOUTH,equalsButton);
         mainFrame.add(BorderLayout.NORTH,textField);
         mainFrame.add(BorderLayout.CENTER,numberPanel);
         mainFrame.setVisible(true);
